@@ -7,7 +7,13 @@ function adicionar() {
 
     // não permite incluir nome em branco
     if (amigo.value =='') {
-        alert("Não é possível incluir um amigo sem definir o nome dele...");
+        alert('Informe o nome do amigo!');
+        return;
+    }
+
+    // Verifica se o nome já está na lista de amigos
+    if (amigos.includes(amigo.value)) {
+        alert('Nome [' + amigo.value + '] já foi adicionado!');
         return;
     }
 
@@ -51,7 +57,9 @@ function sortear() {
 
     // checagem de número mínimo para sorteio
     if (amigos.length < numeroMinimoAmigos) {
-        alert('O mínimo de amigos [' + numeroMinimoAmigos + '] não foi atingido\nNa lista só há [' + amigos.length + '].');
+        alert('O mínimo de amigos [' + numeroMinimoAmigos + '] não foi atingido\n' +
+              'Na lista só há [' + amigos.length + '].\n\n' +
+              'Adicione pelo menos [' + numeroMinimoAmigos + '] amigos.');
         return;
     }
 
